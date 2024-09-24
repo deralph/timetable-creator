@@ -5,7 +5,7 @@ import Timetable from "./Timetable";
 interface Course {
   title: string;
   department: string;
-  borrowedBy: string[];
+  borrowedBy: string;
   lecturer: string;
   duration: string;
   frequency: string;
@@ -20,7 +20,7 @@ const CourseForm: React.FC = () => {
     {
       title: "",
       department: "",
-      borrowedBy: [],
+      borrowedBy: "",
       lecturer: "",
       duration: "",
       frequency: "",
@@ -42,22 +42,22 @@ const CourseForm: React.FC = () => {
     };
     setCourses(updatedCourses);
   };
-  const handleBorrowedByChange = (
-    index: number,
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const { options } = e.target;
-    const selectedBorrowedBy = Array.from(options)
-      .filter((option) => option.selected)
-      .map((option) => option.value);
+  // const handleBorrowedByChange = (
+  //   index: number,
+  //   e: React.ChangeEvent<HTMLSelectElement>
+  // ) => {
+  //   const { options } = e.target;
+  //   const selectedBorrowedBy = Array.from(options)
+  //     .filter((option) => option.selected)
+  //     .map((option) => option.value);
 
-    const updatedCourses = [...courses];
-    updatedCourses[index] = {
-      ...updatedCourses[index],
-      borrowedBy: selectedBorrowedBy, // Update the selected options
-    };
-    setCourses(updatedCourses);
-  };
+  //   const updatedCourses = [...courses];
+  //   updatedCourses[index] = {
+  //     ...updatedCourses[index],
+  //     borrowedBy: selectedBorrowedBy, // Update the selected options
+  //   };
+  //   setCourses(updatedCourses);
+  // };
 
   const handleAddCourse = () => {
     setCourses([
@@ -65,7 +65,7 @@ const CourseForm: React.FC = () => {
       {
         title: "",
         department: "",
-        borrowedBy: [],
+        borrowedBy: "",
         lecturer: "",
         duration: "",
         frequency: "",
@@ -85,9 +85,10 @@ const CourseForm: React.FC = () => {
     e.preventDefault();
     console.log(courses);
     // Send the courses data to the backend here.
-
+    const server = "https://timetable-creator.onrender.com";
+    // const local = "http://127.0.0.1:5000/generate-timetable";
     try {
-      const response = await fetch("http://127.0.0.1:5000/generate-timetable", {
+      const response = await fetch(server, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -163,9 +164,9 @@ const CourseForm: React.FC = () => {
                   <select
                     id={`borrowedBy-${index}`}
                     name="borrowedBy"
-                    multiple
+                    // multiple
                     value={course.borrowedBy}
-                    onChange={(e) => handleBorrowedByChange(index, e)}
+                    onChange={(e) => handleChange(index, e)}
                   >
                     <option value="Computer Science">Computer Science</option>
                     <option value="Physics and elsectronics">
@@ -286,9 +287,6 @@ const CourseForm: React.FC = () => {
           <div className="form-buttons">
             <button type="submit" className="submit-button">
               Save & Continue
-            </button>
-            <button type="button" className="draft-button">
-              Save as Draft
             </button>
           </div>
         </form>

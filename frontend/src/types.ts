@@ -11,10 +11,3 @@ export interface Course {
   courseCode: string;
   frequency: number;
 }
-
-export interface Timetable {
-  course: string;
-  day: string;
-  time: string;
-  lecturer: string;
-}

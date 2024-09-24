@@ -158,7 +158,6 @@ select[multiple] {
 }
 
 /* timetable  */
-
 .timetable-container {
   width: 100%;
   margin: 20px auto;
@@ -172,6 +171,7 @@ select[multiple] {
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   font-size: 12px;
+  overflow: none;
 }
 
 .timetable th,
@@ -196,6 +196,7 @@ select[multiple] {
 
 .course {
   height: 60px;
+  background-color: #e1f7e1;
 }
 
 .course div {
@@ -204,6 +205,7 @@ select[multiple] {
 
 .empty-slot {
   height: 60px;
+  background-color: #f9f9f9;
 }
 
 @media (max-width: 768px) {
@@ -211,5 +213,21 @@ select[multiple] {
   .timetable td {
     font-size: 10px;
     padding: 4px;
+  }
+}
+@media print {
+  /* Hide everything except the timetable-container */
+  body * {
+    visibility: hidden;
+  }
+  .timetable-container,
+  .timetable-container * {
+    visibility: visible;
+  }
+  .timetable-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
 }
