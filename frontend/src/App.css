@@ -1,0 +1,215 @@
+* {
+  border: 0;
+  padding: 0;
+}
+
+/* Centering the form */
+.course-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.form-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.course-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.course-section h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Styling the form */
+.course-form {
+  width: 100%;
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  margin: 0 10px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-course-button {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-course-button:hover {
+  background-color: #218838;
+}
+
+.submit-button,
+.draft-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #6a5acd;
+  color: white;
+}
+
+.draft-button {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.submit-button:hover {
+  background-color: #5a4ab1;
+}
+
+.draft-button:hover {
+  background-color: #e2e6ea;
+}
+
+.remove-course-button {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.remove-course-button:hover {
+  background-color: #c82333;
+}
+/* select[multiple] {
+  height: auto; /* Make sure it fits the content *
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px;
+  background-color: #fff;
+  overflow: auto; /* To allow scrolling if options overflow *
+}
+
+select[multiple]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+option {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* You can adjust the size (visible rows) of the multi-select dropdown *
+select[multiple] {
+  min-height: 80px; /* Adjust this to show more options at once *
+} */
+@media screen and (max-width: 768px) {
+  .course-form {
+    width: 90%;
+  }
+}
+
+/* timetable  */
+
+.timetable-container {
+  width: 100%;
+  margin: 20px auto;
+  overflow-x: auto;
+  border: 1px solid #333;
+  padding: 10px;
+}
+
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.timetable th,
+.timetable td {
+  border: 1px solid #999;
+  text-align: center;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.timetable th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.venue {
+  background-color: #eaeaea;
+  font-weight: bold;
+  width: 100px;
+}
+
+.course {
+  height: 60px;
+}
+
+.course div {
+  margin: 5px 0;
+}
+
+.empty-slot {
+  height: 60px;
+}
+
+@media (max-width: 768px) {
+  .timetable th,
+  .timetable td {
+    font-size: 10px;
+    padding: 4px;
+  }
+}
