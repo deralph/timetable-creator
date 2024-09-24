@@ -6,11 +6,11 @@ import os
 genai.configure(api_key='AIzaSyA6ZYFB82lozVOM726pbnh6LTlAMVR-yvc')
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": ["https://timetable-creator.vercel.app", "http://localhost:5173", "http://127.0.0.1:5173"]}})
 
 # Route to handle course submission and schedule generation
 @app.route('/generate-timetable', methods=['POST'])
-@cross_origin(origin='*')
+@cross_origin(origins=["https://timetable-creator.vercel.app", "http://localhost:5173", "http://127.0.0.1:5173"])
 
 def generate_timetable():
     try:
