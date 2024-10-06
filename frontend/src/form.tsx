@@ -42,22 +42,6 @@ const CourseForm: React.FC = () => {
     };
     setCourses(updatedCourses);
   };
-  // const handleBorrowedByChange = (
-  //   index: number,
-  //   e: React.ChangeEvent<HTMLSelectElement>
-  // ) => {
-  //   const { options } = e.target;
-  //   const selectedBorrowedBy = Array.from(options)
-  //     .filter((option) => option.selected)
-  //     .map((option) => option.value);
-
-  //   const updatedCourses = [...courses];
-  //   updatedCourses[index] = {
-  //     ...updatedCourses[index],
-  //     borrowedBy: selectedBorrowedBy, // Update the selected options
-  //   };
-  //   setCourses(updatedCourses);
-  // };
 
   const handleAddCourse = () => {
     setCourses([

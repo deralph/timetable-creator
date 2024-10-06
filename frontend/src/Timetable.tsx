@@ -1,3 +1,6 @@
+import { db } from "./firebase.ts"; // Make sure to configure Firebase
+import { addDoc, collection } from "firebase/firestore";
+
 // Define types for the timetable structure
 type TimeSlot = {
   time: string; // Original time range, e.g. "7am - 8am"
@@ -52,12 +55,24 @@ const extractTimes = (timeRange: string) => {
   return { startTime, endTime };
 };
 
-// Function to print the timetable
-const printTimetable = () => {
-  window.print();
+const saveTimetableToFirebase = async (timetableData: any[]) => {
+  try {
+    const docRef = await addDoc(collection(db, "timetables"), {
+      timetable: timetableData,
+      timestamp: new Date(),
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 };
 
 const Timetable = ({ timetableData }: { timetableData: DayData[] }) => {
+  // Function to print the timetable
+  const printTimetable = () => {
+    saveTimetableToFirebase(timetableData);
+    window.print();
+  };
   return (
     <>
       <div className="timetable-container">
